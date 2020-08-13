@@ -64,7 +64,7 @@ extension SwiftDoc {
             pages[route(for: symbol)] = TypePage(module: module, symbol: symbol, baseURL: baseURL)
           case let `typealias` as Typealias:
             pages[route(for: `typealias`.name)] = TypealiasPage(module: module, symbol: symbol, baseURL: baseURL)
-          case let function as Function where !function.isOperator:
+          case let function as Function:
             globals[function.name, default: []] += [symbol]
           case let variable as Variable:
             globals[variable.name, default: []] += [symbol]
